@@ -1,0 +1,30 @@
+spring:
+  main:
+    allow-circular-references: true
+    lazy-initialization: false
+  application:
+    name: AdvertisementFetcherApplication
+    baseUrl: http://localhost:8080
+  # Database
+  datasource:
+    tomcat:
+      max-active: 10
+      max-idle: 5
+      min-idle: 2
+      initial-size: 5
+      remove-abandoned: true
+    url: jdbc:postgresql://localhost:5432/AdvertisementFetcherApplication
+    username: postgres
+    password: postgres
+  # JPA properties
+  jpa:
+    hibernate:
+      ddl-auto: update # When you launch the application for the first time - switch "none" at "create"
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: true
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
